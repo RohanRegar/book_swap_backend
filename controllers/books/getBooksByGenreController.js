@@ -32,4 +32,4 @@ const getBooksByGenre = async (req, res) => {
     }
 };
 
-module.exports = getBooksByGenre;
+module.exports = { getBooksByGenre };

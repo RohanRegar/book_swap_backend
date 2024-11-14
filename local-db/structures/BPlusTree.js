@@ -15,17 +15,19 @@ class BPlusTree {
     }
 
     insert(key, value) {
-        if (this.root.keys.length === 0) {
-            this.root.keys.push({ key, value });
-            return;
+        if (!this.root) {
+            this.root = new BPlusTreeNode(true);
         }
 
-        const splitResult = this._insertRecursive(this.root, key, value);
-        if (splitResult) {
+        const insertKey = key.toString();
+        const insertValue = value;
+
+        let result = this._insertRecursive(this.root, insertKey, insertValue);
+        if (result) {
+            // Create new root
             const newRoot = new BPlusTreeNode(false);
-            newRoot.keys.push(splitResult.key);
-            newRoot.children.push(this.root);
-            newRoot.children.push(splitResult.right);
+            newRoot.keys = [result.key];
+            newRoot.children = [this.root, result.right];
             this.root = newRoot;
         }
     }
@@ -122,21 +124,34 @@ class BPlusTree {
     }
 
     search(key) {
+        if (!this.root) return null;
+
         let node = this.root;
+        const searchKey = key.toString();
+
+        console.log('Searching B+ Tree for key:', searchKey);
+        console.log('Root node:', {
+            isLeaf: node.isLeaf,
+            keys: node.keys.map(k => k.key)
+        });
 
         while (!node.isLeaf) {
             let childIndex = 0;
-            while (childIndex < node.keys.length && key >= node.keys[childIndex].key) {
+            while (childIndex < node.keys.length) {
+                const nodeKey = (node.keys[childIndex].key || '').toString();
+                if (searchKey < nodeKey) break;
                 childIndex++;
             }
             node = node.children[childIndex];
         }
 
+        // Search leaf node
         for (const entry of node.keys) {
-            if (entry.key === key) {
+            if (entry.key.toString() === searchKey) {
                 return entry.value;
             }
         }
+
         return null;
     }
 

@@ -62,6 +62,7 @@ class LocalDatabase {
             if (!indexesValid) {
                 console.log('Indexes invalid or missing, rebuilding...');
                 await this.rebuildIndexes();
+                this.verifyBPlusTree();
             }
 
             this.initialized = true;
@@ -164,11 +165,6 @@ class LocalDatabase {
         console.log('Rebuilding indexes...');
 
         // Clear existing indexes
-        this.userIndexes = {
-            id: new BPlusTree(3),
-            email: new SimpleIndex()
-        };
-
         this.bookIndexes = {
             id: new BPlusTree(3),
             title: new SimpleIndex(),
@@ -176,15 +172,18 @@ class LocalDatabase {
             owner: new SimpleIndex()
         };
 
-        // Rebuild user indexes
-        this.users.forEach((user, index) => {
-            this.userIndexes.id.insert(user._id, index);
-            this.userIndexes.email.addToIndex(user.email.toLowerCase(), index);
-        });
-
-        // Rebuild book indexes
+        // Rebuild book indexes with debug logging
         this.books.forEach((book, index) => {
+            console.log(`Adding book to index - ID: ${book._id}, Index: ${index}`);
+
+            // Add to B+ tree index
             this.bookIndexes.id.insert(book._id, index);
+
+            // Verify insertion
+            const foundIndex = this.bookIndexes.id.search(book._id);
+            console.log(`Verification - Book ${book._id}: expected ${index}, found ${foundIndex}`);
+
+            // Add to other indexes
             this.bookIndexes.title.addToIndex(book.title.toLowerCase(), index);
             this.bookIndexes.genre.addToIndex(book.genre.toLowerCase(), index);
             this.bookIndexes.owner.addToIndex(book.owner, index);
@@ -193,6 +192,27 @@ class LocalDatabase {
         // Save rebuilt indexes
         await this.saveIndexes();
         console.log('Indexes rebuilt successfully');
+    }
+
+    verifyBPlusTree() {
+        console.log('Verifying B+ tree structure:');
+        const tree = this.bookIndexes.id;
+
+        // Print tree structure
+        const printNode = (node, level = 0) => {
+            const indent = '  '.repeat(level);
+            console.log(`${indent}Node (${node.isLeaf ? 'Leaf' : 'Internal'}):`);
+            console.log(`${indent}Keys:`, node.keys);
+
+            if (!node.isLeaf) {
+                node.children.forEach((child, index) => {
+                    console.log(`${indent}Child ${index}:`);
+                    printNode(child, level + 1);
+                });
+            }
+        };
+
+        printNode(tree.root);
     }
     async saveIndexes() {
         await FileUtils.saveIndexes('book', this.bookIndexes);
@@ -277,7 +297,55 @@ class LocalDatabase {
         console.timeEnd('Find Books by Owner');
         return books;
     }
+    async findBookById(_id) {
+        await this.initialize();
+        console.time('Find Book by ID');
 
+        try {
+            console.log('Input ID:', _id);
+
+            // First, let's check if the book exists in the raw data
+            const bookFromArray = this.books.find(book => book._id === _id);
+            console.log('Direct array search result:', bookFromArray);
+
+            // Now let's check the B+ tree index
+            const index = this.bookIndexes.id.search(_id);
+            console.log('B+ Tree index result:', index);
+
+            if (index !== null) {
+                const bookFromIndex = this.books[index];
+                console.log('Book from index:', bookFromIndex);
+                return bookFromIndex;
+            }
+
+            // If B+ tree failed but direct search worked, return that
+            if (bookFromArray) {
+                console.log('Found book through direct search, index might be corrupted');
+                // Optionally rebuild index
+                await this.rebuildBookIdIndex();
+                return bookFromArray;
+            }
+
+            return null;
+        } catch (error) {
+            console.error('Error in findBookById:', error);
+            return null;
+        } finally {
+            console.timeEnd('Find Book by ID');
+        }
+    }
+
+    async findBooksByTitle(title) {
+        await this.initialize();
+        console.time('Find Books by Title');
+
+        const searchTitle = title.toLowerCase();
+        const indices = this.bookIndexes.title.search(searchTitle);
+        const books = indices.map(index => this.books[index]);
+
+        console.timeEnd('Find Books by Title');
+        return books;
+    }
     // User Operations
     async addUser(userData) {
         await this.initialize();
@@ -450,6 +518,33 @@ class LocalDatabase {
         });
 
         return isValid;
+    }
+    async forceRebuildIndexes() {
+        await this.initialize();
+        console.log('Force rebuilding indexes...');
+        await this.rebuildIndexes();
+        return true;
+    }
+    async rebuildBookIdIndex() {
+        console.log('Rebuilding book ID index...');
+
+        // Create new B+ tree
+        this.bookIndexes.id = new BPlusTree(3);
+
+        // Add each book to the index
+        this.books.forEach((book, index) => {
+            const bookId = book._id;
+            console.log(`Adding book ${bookId} at index ${index}`);
+            this.bookIndexes.id.insert(bookId, index);
+
+            // Verify the insertion
+            const foundIndex = this.bookIndexes.id.search(bookId);
+            if (foundIndex !== index) {
+                console.error(`Index mismatch for book ${bookId}: expected ${index}, got ${foundIndex}`);
+            }
+        });
+
+        await this.saveIndexes();
     }
 }
 

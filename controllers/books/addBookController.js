@@ -41,9 +41,9 @@
 // };
 
 const localDb = require('../../local-db/LocalDatabase');
-const FileUtils = require('../../local-db/utils/fileUtils');  // Add this import
+const FileUtils = require('../../local-db/utils/fileUtils');
 
-module.exports = async (req, res) => {
+const addBook = async (req, res) => {
     try {
         const { title, author, description, condition, genre, image } = req.body;
 
@@ -64,7 +64,7 @@ module.exports = async (req, res) => {
         const user = await localDb.findUserById(req.user._id);
         user.books.push(book._id);
         await FileUtils.writeJsonFile('users.json', localDb.users);
-
+        await localDb.saveIndexes();
         res.status(201).json({
             message: 'Book added successfully',
             book
@@ -77,3 +77,5 @@ module.exports = async (req, res) => {
         });
     }
 };
+
+module.exports = { addBook };

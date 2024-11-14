@@ -63,4 +63,4 @@ const getUserBooks = async (req, res) => {
     }
 };
 
-module.exports = getUserBooks;
+module.exports = { getUserBooks };
