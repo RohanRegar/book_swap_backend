@@ -1,0 +1,1035 @@
+{
+  "timestamp": "2024-11-14T13:33:54.627Z",
+  "indexes": {
+    "simpleIndexes": {
+      "title": [
+        [
+          "to kill a mockingbird",
+          [
+            0
+          ]
+        ],
+        [
+          "1984",
+          [
+            1
+          ]
+        ],
+        [
+          "the great gatsby",
+          [
+            2
+          ]
+        ],
+        [
+          "moby-dick",
+          [
+            3
+          ]
+        ],
+        [
+          "pride and prejudice",
+          [
+            4
+          ]
+        ],
+        [
+          "one hundred years of solitude",
+          [
+            5
+          ]
+        ],
+        [
+          "the catcher in the rye",
+          [
+            6
+          ]
+        ],
+        [
+          "educated",
+          [
+            7
+          ]
+        ],
+        [
+          "sapiens: a brief history of humankind",
+          [
+            8
+          ]
+        ],
+        [
+          "the immortal life of henrietta lacks",
+          [
+            9
+          ]
+        ],
+        [
+          "the diary of a young girl",
+          [
+            10
+          ]
+        ],
+        [
+          "into the wild",
+          [
+            11
+          ]
+        ],
+        [
+          "becoming",
+          [
+            12
+          ]
+        ],
+        [
+          "the wright brothers",
+          [
+            13
+          ]
+        ],
+        [
+          "the glass castle",
+          [
+            14
+          ]
+        ],
+        [
+          "the innovators",
+          [
+            15
+          ]
+        ],
+        [
+          "the gene: an intimate history",
+          [
+            16
+          ]
+        ],
+        [
+          "a brief history of time",
+          [
+            17
+          ]
+        ],
+        [
+          "astrophysics for people in a hurry",
+          [
+            18
+          ]
+        ],
+        [
+          "the code book",
+          [
+            19
+          ]
+        ],
+        [
+          "the selfish gene",
+          [
+            20
+          ]
+        ],
+        [
+          "how we got to now",
+          [
+            21
+          ]
+        ],
+        [
+          "the emperor of all maladies",
+          [
+            22
+          ]
+        ],
+        [
+          "the history of the ancient world",
+          [
+            23
+          ]
+        ],
+        [
+          "the republic",
+          [
+            24
+          ]
+        ],
+        [
+          "guns, germs, and steel",
+          [
+            25
+          ]
+        ],
+        [
+          "the tao of pooh",
+          [
+            26
+          ]
+        ],
+        [
+          "the art of war",
+          [
+            27
+          ]
+        ],
+        [
+          "the prince",
+          [
+            28
+          ]
+        ],
+        [
+          "the decline and fall of the roman empire",
+          [
+            29
+          ]
+        ],
+        [
+          "the body keeps the score",
+          [
+            30
+          ]
+        ],
+        [
+          "why we sleep",
+          [
+            31
+          ]
+        ],
+        [
+          "how to change your mind",
+          [
+            32
+          ]
+        ],
+        [
+          "the 4-hour body",
+          [
+            33
+          ]
+        ],
+        [
+          "atomic habits",
+          [
+            34
+          ]
+        ],
+        [
+          "the blue zones",
+          [
+            35
+          ]
+        ],
+        [
+          "the power of habit",
+          [
+            36
+          ]
+        ],
+        [
+          "the happiness project",
+          [
+            37
+          ]
+        ]
+      ],
+      "genre": [
+        [
+          "fiction",
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        [
+          "non-fiction",
+          [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        ],
+        [
+          "science and technology",
+          [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22
+          ]
+        ],
+        [
+          "history and philosophy",
+          [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ]
+        ],
+        [
+          "health",
+          [
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37
+          ]
+        ]
+      ],
+      "owner": [
+        [
+          "1731589222853",
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        [
+          "1731589888707",
+          [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            30
+          ]
+        ],
+        [
+          "1731590143590",
+          [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22
+          ]
+        ],
+        [
+          "1731590301812",
+          [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ]
+        ],
+        [
+          "1731591104305",
+          [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37
+          ]
+        ]
+      ]
+    },
+    "bPlusTreeIndexes": {
+      "id": {
+        "order": 3,
+        "root": {
+          "keys": [
+            {
+              "key": {
+                "key": {
+                  "key": {
+                    "key": "1731590443899",
+                    "value": null
+                  },
+                  "value": null
+                },
+                "value": null
+              },
+              "value": null
+            },
+            {
+              "key": {
+                "key": {
+                  "key": "1731590100322",
+                  "value": null
+                },
+                "value": null
+              },
+              "value": null
+            }
+          ],
+          "children": [
+            {
+              "keys": [
+                {
+                  "key": {
+                    "key": {
+                      "key": "1731591145822",
+                      "value": null
+                    },
+                    "value": null
+                  },
+                  "value": null
+                }
+              ],
+              "children": [
+                {
+                  "keys": [
+                    {
+                      "key": "1731589663946",
+                      "value": null
+                    },
+                    {
+                      "key": {
+                        "key": "1731591189052",
+                        "value": null
+                      },
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731589569950",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731589275486",
+                              "value": 0
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731589569950",
+                              "value": 3
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731589787957",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731589663946",
+                              "value": 4
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731589787957",
+                              "value": 5
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731591208312",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731591189052",
+                              "value": 35
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731591208312",
+                              "value": 36
+                            },
+                            {
+                              "key": "1731591221664",
+                              "value": 37
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                },
+                {
+                  "keys": [
+                    {
+                      "key": {
+                        "key": "1731590496893",
+                        "value": null
+                      },
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731591160651",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731591145822",
+                              "value": 32
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731591160651",
+                              "value": 33
+                            },
+                            {
+                              "key": "1731591177503",
+                              "value": 34
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731591055331",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590496893",
+                              "value": 29
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731591055331",
+                              "value": 30
+                            },
+                            {
+                              "key": "1731591130163",
+                              "value": 31
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                }
+              ],
+              "isLeaf": false,
+              "next": null
+            },
+            {
+              "keys": [
+                {
+                  "key": {
+                    "key": {
+                      "key": "1731590236803",
+                      "value": null
+                    },
+                    "value": null
+                  },
+                  "value": null
+                }
+              ],
+              "children": [
+                {
+                  "keys": [
+                    {
+                      "key": {
+                        "key": "1731590403609",
+                        "value": null
+                      },
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731590467785",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590443899",
+                              "value": 26
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590467785",
+                              "value": 27
+                            },
+                            {
+                              "key": "1731590482683",
+                              "value": 28
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731590417144",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590403609",
+                              "value": 23
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590417144",
+                              "value": 24
+                            },
+                            {
+                              "key": "1731590429029",
+                              "value": 25
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                },
+                {
+                  "keys": [
+                    {
+                      "key": {
+                        "key": "1731590199654",
+                        "value": null
+                      },
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731590248687",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590236803",
+                              "value": 20
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590248687",
+                              "value": 21
+                            },
+                            {
+                              "key": "1731590260936",
+                              "value": 22
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731590213110",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590199654",
+                              "value": 17
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590213110",
+                              "value": 18
+                            },
+                            {
+                              "key": "1731590224358",
+                              "value": 19
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                }
+              ],
+              "isLeaf": false,
+              "next": null
+            },
+            {
+              "keys": [
+                {
+                  "key": {
+                    "key": "1731590019179",
+                    "value": null
+                  },
+                  "value": null
+                }
+              ],
+              "children": [
+                {
+                  "keys": [
+                    {
+                      "key": {
+                        "key": "1731590060050",
+                        "value": null
+                      },
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731590165970",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590100322",
+                              "value": 14
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590165970",
+                              "value": 15
+                            },
+                            {
+                              "key": "1731590176977",
+                              "value": 16
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731590074210",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590060050",
+                              "value": 11
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590074210",
+                              "value": 12
+                            },
+                            {
+                              "key": "1731590086585",
+                              "value": 13
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                },
+                {
+                  "keys": [
+                    {
+                      "key": {
+                        "key": "1731589800306",
+                        "value": null
+                      },
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731590032669",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590019179",
+                              "value": 8
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731590032669",
+                              "value": 9
+                            },
+                            {
+                              "key": "1731590045004",
+                              "value": 10
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        "1731589352029"
+                      ],
+                      "children": [
+                        {
+                          "keys": [
+                            {
+                              "key": "1731589800306",
+                              "value": 6
+                            },
+                            {
+                              "key": "1731589916949",
+                              "value": 7
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731589352029",
+                              "value": 1
+                            },
+                            {
+                              "key": "1731589487985",
+                              "value": 2
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                }
+              ],
+              "isLeaf": false,
+              "next": null
+            }
+          ],
+          "isLeaf": false,
+          "next": null
+        }
+      }
+    }
+  }
+}

@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const bookSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: true,
+    index: true
   },
   author: {
     type: String,
-    required: true
+    required: true,
+    index: true
   },
   description: {
     type: String,
@@ -20,12 +22,14 @@ const bookSchema = new mongoose.Schema({
   },
   genre: {
     type: String,
-    required: true
+    required: true,
+    index: true
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required: true,
+    index: true
   },
   isAvailable: {
     type: Boolean,
