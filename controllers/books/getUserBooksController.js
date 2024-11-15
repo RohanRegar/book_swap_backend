@@ -33,19 +33,23 @@
 const localDb = require('../../local-db/LocalDatabase');
 
 const getUserBooks = async (req, res) => {
+    const timeLabel = `GetUserBooks_${Date.now()}`;
+    console.time(timeLabel);
     try {
-        console.time('Get User Books');
-        // Fetch user from local database
+        console.time('Find_User');
         const user = await localDb.findUserById(req.user._id);
+        console.timeEnd('Find_User');
 
         if (!user) {
+            console.timeEnd(timeLabel);
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Fetch all books belonging to the user
+        console.time('Find_Books');
         const userBooks = await localDb.findBooksByOwner(user._id);
-        console.timeEnd('Get User Books');
+        console.timeEnd('Find_Books');
 
+        console.timeEnd(timeLabel);
         const response = {
             user: {
                 id: user._id,
@@ -56,8 +60,8 @@ const getUserBooks = async (req, res) => {
         };
 
         res.json(response);
-
     } catch (error) {
+        console.timeEnd(timeLabel);
         console.error(error);
         res.status(500).json({ message: 'Error fetching user books' });
     }

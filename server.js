@@ -5,7 +5,7 @@ const authRoutes = require('./routes/authRoutes');
 const bookRoutes = require('./routes/bookRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
-
+const timingMiddleware = require('./middlewares/timingMiddleware');
 // Initialize dotenv
 dotenv.config();
 
@@ -22,7 +22,8 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-
+// Add after other middleware declarations
+app.use(timingMiddleware);
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);

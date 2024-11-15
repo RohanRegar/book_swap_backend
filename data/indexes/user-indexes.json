@@ -1,16 +1,337 @@
 {
-  "timestamp": "2024-11-14T18:23:40.635Z",
+  "timestamp": "2024-11-15T07:27:13.200Z",
   "indexes": {
     "simpleIndexes": {
-      "email": []
+      "email": [
+        [
+          "testuser@example.com",
+          [
+            0
+          ]
+        ],
+        [
+          "test@example.com",
+          [
+            1
+          ]
+        ],
+        [
+          "test123@example.com",
+          [
+            2
+          ]
+        ],
+        [
+          "rohan@example.com",
+          [
+            3
+          ]
+        ],
+        [
+          "arnav@example.com",
+          [
+            4
+          ]
+        ],
+        [
+          "buddhav@example.com",
+          [
+            5
+          ]
+        ],
+        [
+          "dheeraj@example.com",
+          [
+            6
+          ]
+        ],
+        [
+          "ayush@example.com",
+          [
+            7
+          ]
+        ],
+        [
+          "girish@example.com",
+          [
+            8
+          ]
+        ],
+        [
+          "qwerty@example.com",
+          [
+            9
+          ]
+        ],
+        [
+          "nv@example.com",
+          [
+            10
+          ]
+        ],
+        [
+          "arnav123@example.com",
+          [
+            11
+          ]
+        ],
+        [
+          "arnav1234@example.com",
+          [
+            12
+          ]
+        ],
+        [
+          "arnav12345@example.com",
+          [
+            13
+          ]
+        ],
+        [
+          "arnava12345@example.com",
+          [
+            14
+          ]
+        ]
+      ]
     },
     "bPlusTreeIndexes": {
       "id": {
         "order": 3,
         "root": {
-          "keys": [],
-          "children": [],
-          "isLeaf": true,
+          "keys": [
+            {
+              "key": {
+                "key": "1731591104305",
+                "value": null
+              },
+              "value": null
+            }
+          ],
+          "children": [
+            {
+              "keys": [
+                {
+                  "key": "1731589888707",
+                  "value": null
+                },
+                {
+                  "key": {
+                    "key": "1731655092766",
+                    "value": null
+                  },
+                  "value": null
+                }
+              ],
+              "children": [
+                {
+                  "keys": [
+                    {
+                      "key": "1731589222853",
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731588053164",
+                          "value": 0
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731589222853",
+                          "value": 3
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                },
+                {
+                  "keys": [
+                    {
+                      "key": "1731590143590",
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731589888707",
+                          "value": 4
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731590143590",
+                          "value": 5
+                        },
+                        {
+                          "key": "1731655230499",
+                          "value": 14
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                },
+                {
+                  "keys": [
+                    {
+                      "key": "1731655112381",
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731655092766",
+                          "value": 11
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731655112381",
+                          "value": 12
+                        },
+                        {
+                          "key": "1731655216857",
+                          "value": 13
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                }
+              ],
+              "isLeaf": false,
+              "next": null
+            },
+            {
+              "keys": [
+                {
+                  "key": {
+                    "key": "1731590301812",
+                    "value": null
+                  },
+                  "value": null
+                }
+              ],
+              "children": [
+                {
+                  "keys": [
+                    {
+                      "key": "1731645600976",
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731591104305",
+                          "value": 8
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731645600976",
+                          "value": 9
+                        },
+                        {
+                          "key": "1731647059789",
+                          "value": 10
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                },
+                {
+                  "keys": [
+                    "1731588461173"
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731590301812",
+                          "value": 6
+                        },
+                        {
+                          "key": "1731590537866",
+                          "value": 7
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731588461173",
+                          "value": 1
+                        },
+                        {
+                          "key": "1731588855268",
+                          "value": 2
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                }
+              ],
+              "isLeaf": false,
+              "next": null
+            }
+          ],
+          "isLeaf": false,
           "next": null
         }
       }

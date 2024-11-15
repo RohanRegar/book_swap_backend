@@ -44,10 +44,12 @@ const localDb = require('../../local-db/LocalDatabase');
 const FileUtils = require('../../local-db/utils/fileUtils');
 
 const addBook = async (req, res) => {
+    const timeLabel = `AddBook_${Date.now()}`;
+    console.time(timeLabel);
     try {
         const { title, author, description, condition, genre, image } = req.body;
 
-        console.time('Add Book');
+        console.time('Create_Book');
         const book = await localDb.addBook({
             title,
             author,
@@ -58,18 +60,22 @@ const addBook = async (req, res) => {
             owner: req.user._id,
             isAvailable: true
         });
-        console.timeEnd('Add Book');
+        console.timeEnd('Create_Book');
 
-        // Update user's books array
+        console.time('Update_User');
         const user = await localDb.findUserById(req.user._id);
         user.books.push(book._id);
         await FileUtils.writeJsonFile('users.json', localDb.users);
         await localDb.saveIndexes();
+        console.timeEnd('Update_User');
+
+        console.timeEnd(timeLabel);
         res.status(201).json({
             message: 'Book added successfully',
             book
         });
     } catch (error) {
+        console.timeEnd(timeLabel);
         console.error(error);
         res.status(500).json({
             message: 'Error adding book',

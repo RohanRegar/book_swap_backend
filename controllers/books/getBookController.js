@@ -1,37 +1,42 @@
 const localDb = require('../../local-db/LocalDatabase');
 
 const getBookById = async (req, res) => {
+    const timeLabel = `GetBookById_${Date.now()}`;
+    console.time(timeLabel);
     try {
         const { id: _id } = req.params;
-        console.log('Searching for book with ID:', _id);
 
+        console.time('Validation');
         if (!_id || _id.trim() === '') {
+            console.timeEnd('Validation');
+            console.timeEnd(timeLabel);
             return res.status(400).json({
                 success: false,
                 message: 'Book ID is required'
             });
         }
+        console.timeEnd('Validation');
 
-        // Add debugging logs
-        console.log('Book ID type:', typeof _id);
-        console.log('Book ID value:', _id);
-
+        console.time('Database_Query');
         const book = await localDb.findBookById(_id);
-        console.log('Search result:', book);
+        console.timeEnd('Database_Query');
 
         if (!book) {
+            console.timeEnd(timeLabel);
             return res.status(404).json({
                 success: false,
                 message: 'Book not found'
             });
         }
 
+        console.timeEnd(timeLabel);
         res.status(200).json({
             success: true,
             data: book,
             message: 'Book retrieved successfully'
         });
     } catch (error) {
+        console.timeEnd(timeLabel);
         console.error('Get book error:', error);
         res.status(500).json({
             success: false,
@@ -42,24 +47,34 @@ const getBookById = async (req, res) => {
 };
 
 const getBookByTitle = async (req, res) => {
+    const timeLabel = `GetBookByTitle_${Date.now()}`;
+    console.time(timeLabel);
     try {
         const { title } = req.params;
 
+        console.time('Validation');
         if (!title) {
+            console.timeEnd('Validation');
+            console.timeEnd(timeLabel);
             return res.status(400).json({
                 success: false,
                 message: 'Book title is required'
             });
         }
+        console.timeEnd('Validation');
 
+        console.time('Database_Query');
         const books = await localDb.findBooksByTitle(title);
+        console.timeEnd('Database_Query');
 
+        console.timeEnd(timeLabel);
         res.status(200).json({
             success: true,
             data: books,
             message: `Found ${books.length} books matching "${title}"`
         });
     } catch (error) {
+        console.timeEnd(timeLabel);
         console.error('Get book by title error:', error);
         res.status(500).json({
             success: false,

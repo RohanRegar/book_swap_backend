@@ -86,7 +86,7 @@ class FileUtils {
                 }
             }
 
-            console.log(`Saving ${type} indexes to: ${indexPath}`);
+            // console.log(`Saving ${type} indexes to: ${indexPath}`);
             await fs.writeFile(indexPath, JSON.stringify(indexData, null, 2));
 
         } catch (error) {

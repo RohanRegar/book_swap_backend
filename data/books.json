@@ -492,5 +492,18 @@
     "isAvailable": true,
     "createdAt": "2024-11-14T13:33:41.664Z",
     "updatedAt": "2024-11-14T13:33:41.664Z"
+  },
+  {
+    "_id": "1731655633193",
+    "title": "Pride and Prejudice",
+    "author": "Herman Melville",
+    "description": "Pride and Prejudice is the second novel by English author Jane Austen, published in 1813. A novel of manners, it follows the character development of Elizabeth Bennet, the protagonist of the book, who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness. ",
+    "condition": "Like New",
+    "genre": "Fiction",
+    "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/book/f/s/1/pride-prejudice-original-imagy32ephewfga2.jpeg?q=90&crop=false",
+    "owner": "1731589888707",
+    "isAvailable": true,
+    "createdAt": "2024-11-15T07:27:13.193Z",
+    "updatedAt": "2024-11-15T07:27:13.193Z"
   }
 ]

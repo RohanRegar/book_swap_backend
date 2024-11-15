@@ -29,12 +29,12 @@ class LocalDatabase {
         if (this.initialized) return;
 
         try {
-            console.log('Initializing LocalDatabase...');
+            // console.log('Initializing LocalDatabase...');
 
             // Load data from JSON files
             this.books = await FileUtils.readJsonFile('books.json') || [];
             this.users = await FileUtils.readJsonFile('users.json') || [];
-            console.log(`Loaded ${this.books.length} books and ${this.users.length} users`);
+            // console.log(`Loaded ${this.books.length} books and ${this.users.length} users`);
 
             // Load indexes
             const bookIndexData = await FileUtils.loadIndexes('book');
@@ -43,7 +43,7 @@ class LocalDatabase {
             let indexesValid = true;
 
             if (bookIndexData && userIndexData) {
-                console.log('Restoring indexes from files...');
+                // console.log('Restoring indexes from files...');
                 try {
                     this.restoreIndexes('book', bookIndexData);
                     this.restoreIndexes('user', userIndexData);
@@ -60,13 +60,12 @@ class LocalDatabase {
 
             // Rebuild indexes if validation failed
             if (!indexesValid) {
-                console.log('Indexes invalid or missing, rebuilding...');
+                // console.log('Indexes invalid or missing, rebuilding...');
                 await this.rebuildIndexes();
-                this.verifyBPlusTree();
             }
 
             this.initialized = true;
-            console.log('Database initialization completed');
+            // console.log('Database initialization completed');
 
         } catch (error) {
             console.error('Error initializing database:', error);
@@ -80,7 +79,7 @@ class LocalDatabase {
      */
     restoreIndexes(type, indexData) {
         try {
-            console.log(`Restoring ${type} indexes...`);
+            // console.log(`Restoring ${type} indexes...`);
 
             const indexes = type === 'book' ? this.bookIndexes : this.userIndexes;
 
@@ -103,13 +102,12 @@ class LocalDatabase {
                 }
             }
 
-            console.log(`Successfully restored ${type} indexes`);
+            // console.log(`Successfully restored ${type} indexes`);
         } catch (error) {
             console.error(`Error restoring ${type} indexes:`, error);
             throw new Error(`Failed to restore ${type} indexes: ${error.message}`);
         }
     }
-
     /**
      * Restore a B+ tree from saved data
      * @param {BPlusTree} tree - B+ tree instance
@@ -162,9 +160,14 @@ class LocalDatabase {
         return lastLeaf;
     }
     async rebuildIndexes() {
-        console.log('Rebuilding indexes...');
+        // console.log('Rebuilding indexes...');
 
         // Clear existing indexes
+        this.userIndexes = {
+            id: new BPlusTree(3),
+            email: new SimpleIndex()
+        };
+
         this.bookIndexes = {
             id: new BPlusTree(3),
             title: new SimpleIndex(),
@@ -172,18 +175,15 @@ class LocalDatabase {
             owner: new SimpleIndex()
         };
 
-        // Rebuild book indexes with debug logging
+        // Rebuild user indexes
+        this.users.forEach((user, index) => {
+            this.userIndexes.id.insert(user._id, index);
+            this.userIndexes.email.addToIndex(user.email.toLowerCase(), index);
+        });
+
+        // Rebuild book indexes
         this.books.forEach((book, index) => {
-            console.log(`Adding book to index - ID: ${book._id}, Index: ${index}`);
-
-            // Add to B+ tree index
             this.bookIndexes.id.insert(book._id, index);
-
-            // Verify insertion
-            const foundIndex = this.bookIndexes.id.search(book._id);
-            console.log(`Verification - Book ${book._id}: expected ${index}, found ${foundIndex}`);
-
-            // Add to other indexes
             this.bookIndexes.title.addToIndex(book.title.toLowerCase(), index);
             this.bookIndexes.genre.addToIndex(book.genre.toLowerCase(), index);
             this.bookIndexes.owner.addToIndex(book.owner, index);
@@ -191,22 +191,22 @@ class LocalDatabase {
 
         // Save rebuilt indexes
         await this.saveIndexes();
-        console.log('Indexes rebuilt successfully');
+        // console.log('Indexes rebuilt successfully');
     }
 
     verifyBPlusTree() {
-        console.log('Verifying B+ tree structure:');
+        // console.log('Verifying B+ tree structure:');
         const tree = this.bookIndexes.id;
 
         // Print tree structure
         const printNode = (node, level = 0) => {
             const indent = '  '.repeat(level);
-            console.log(`${indent}Node (${node.isLeaf ? 'Leaf' : 'Internal'}):`);
-            console.log(`${indent}Keys:`, node.keys);
+            // console.log(`${indent}Node (${node.isLeaf ? 'Leaf' : 'Internal'}):`);
+            // console.log(`${indent}Keys:`, node.keys);
 
             if (!node.isLeaf) {
                 node.children.forEach((child, index) => {
-                    console.log(`${indent}Child ${index}:`);
+                    // console.log(`${indent}Child ${index}:`);
                     printNode(child, level + 1);
                 });
             }
@@ -264,13 +264,13 @@ class LocalDatabase {
         console.time('Find User by Email');
 
         const normalizedEmail = email.toLowerCase();
-        console.log('Searching for email:', normalizedEmail);
+        // console.log('Searching for email:', normalizedEmail);
 
         const indices = this.userIndexes.email.search(normalizedEmail);
-        console.log('Found indices:', indices);
+        // console.log('Found indices:', indices);
 
         const user = indices.length > 0 ? this.users[indices[0]] : null;
-        console.log('Found user:', user);
+        // console.log('Found user:', user);
 
         console.timeEnd('Find User by Email');
         return user;
@@ -299,29 +299,24 @@ class LocalDatabase {
     }
     async findBookById(_id) {
         await this.initialize();
-        console.time('Find Book by ID');
+        // console.time('Find Book by ID');
 
         try {
-            console.log('Input ID:', _id);
-
-            // First, let's check if the book exists in the raw data
+            // console.log('Input ID:', _id);
             const bookFromArray = this.books.find(book => book._id === _id);
-            console.log('Direct array search result:', bookFromArray);
+            // console.log('Direct array search result:', bookFromArray);
 
-            // Now let's check the B+ tree index
             const index = this.bookIndexes.id.search(_id);
-            console.log('B+ Tree index result:', index);
+            // console.log('B+ Tree index result:', index);
 
             if (index !== null) {
                 const bookFromIndex = this.books[index];
-                console.log('Book from index:', bookFromIndex);
+                // console.log('Book from index:', bookFromIndex);
                 return bookFromIndex;
             }
 
-            // If B+ tree failed but direct search worked, return that
             if (bookFromArray) {
-                console.log('Found book through direct search, index might be corrupted');
-                // Optionally rebuild index
+                // console.log('Found book through direct search, index might be corrupted');
                 await this.rebuildBookIdIndex();
                 return bookFromArray;
             }
@@ -330,8 +325,6 @@ class LocalDatabase {
         } catch (error) {
             console.error('Error in findBookById:', error);
             return null;
-        } finally {
-            console.timeEnd('Find Book by ID');
         }
     }
 
@@ -363,18 +356,18 @@ class LocalDatabase {
         this.users.push(newUser);
 
         // Debug log
-        console.log('Adding user to indexes:', {
-            id: newUser._id,
-            email: newUser.email.toLowerCase(),
-            index: newIndex
-        });
+        // console.log('Adding user to indexes:', {
+        //     id: newUser._id,
+        //     email: newUser.email.toLowerCase(),
+        //     index: newIndex
+        // });
 
         // Update indexes
         this.userIndexes.id.insert(newUser._id, newIndex);
         this.userIndexes.email.addToIndex(newUser.email.toLowerCase(), newIndex);
 
         // Debug log indexes after update
-        console.log('Email index after update:', this.userIndexes.email);
+        // console.log('Email index after update:', this.userIndexes.email);
 
         // Save to files
         await Promise.all([
@@ -492,16 +485,16 @@ class LocalDatabase {
         ]);
     }
     async validateIndexes() {
-        console.log('Validating indexes...');
+        // console.log('Validating indexes...');
         let isValid = true;
 
         // Check email index
         this.users.forEach((user, index) => {
             const indices = this.userIndexes.email.search(user.email.toLowerCase());
             if (!indices.includes(index)) {
-                console.error('Index mismatch for user:', user.email);
-                console.log('Expected index:', index);
-                console.log('Found indices:', indices);
+                // console.error('Index mismatch for user:', user.email);
+                // console.log('Expected index:', index);
+                // console.log('Found indices:', indices);
                 isValid = false;
             }
         });
@@ -510,9 +503,9 @@ class LocalDatabase {
         this.users.forEach((user, index) => {
             const foundIndex = this.userIndexes.id.search(user._id);
             if (foundIndex !== index) {
-                console.error('ID index mismatch for user:', user._id);
-                console.log('Expected index:', index);
-                console.log('Found index:', foundIndex);
+                // console.error('ID index mismatch for user:', user._id);
+                // console.log('Expected index:', index);
+                // console.log('Found index:', foundIndex);
                 isValid = false;
             }
         });
@@ -521,23 +514,18 @@ class LocalDatabase {
     }
     async forceRebuildIndexes() {
         await this.initialize();
-        console.log('Force rebuilding indexes...');
+        // console.log('Force rebuilding indexes...');
         await this.rebuildIndexes();
         return true;
     }
     async rebuildBookIdIndex() {
-        console.log('Rebuilding book ID index...');
-
-        // Create new B+ tree
+        // console.log('Rebuilding book ID index...');
         this.bookIndexes.id = new BPlusTree(3);
 
-        // Add each book to the index
         this.books.forEach((book, index) => {
             const bookId = book._id;
-            console.log(`Adding book ${bookId} at index ${index}`);
             this.bookIndexes.id.insert(bookId, index);
 
-            // Verify the insertion
             const foundIndex = this.bookIndexes.id.search(bookId);
             if (foundIndex !== index) {
                 console.error(`Index mismatch for book ${bookId}: expected ${index}, got ${foundIndex}`);
