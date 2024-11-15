@@ -32,6 +32,6 @@
     "scripts": {
         "start": "nodemon server.js",
         "dev": "nodemon server.js",
-        "build": "webpack --config webpack.config.js"
+        "build": "echo 'Preparing for deployment... No additional build step required'"
     }
 }
