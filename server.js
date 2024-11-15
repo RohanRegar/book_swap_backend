@@ -16,11 +16,12 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: 'GET,POST,PUT,DELETE',
-  credentials: true
-}));
+app.use(cors());
+// app.use(cors({
+//   origin: 'http://localhost:3000',
+//   methods: 'GET,POST,PUT,DELETE',
+//   credentials: true
+// }));
 app.use(express.json());
 // Add after other middleware declarations
 app.use(timingMiddleware);

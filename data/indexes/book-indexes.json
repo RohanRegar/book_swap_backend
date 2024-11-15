@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-15T07:27:13.199Z",
+  "timestamp": "2024-11-15T14:46:24.410Z",
   "indexes": {
     "simpleIndexes": {
       "title": [
@@ -231,6 +231,25 @@
           [
             37
           ]
+        ],
+        [
+          "the man who mistook his wife for a hat",
+          [
+            39,
+            40
+          ]
+        ],
+        [
+          "the alchemist",
+          [
+            41
+          ]
+        ],
+        [
+          "the hobbit",
+          [
+            42
+          ]
         ]
       ],
       "genre": [
@@ -244,7 +263,9 @@
             4,
             5,
             6,
-            38
+            38,
+            41,
+            42
           ]
         ],
         [
@@ -257,7 +278,9 @@
             11,
             12,
             13,
-            14
+            14,
+            39,
+            40
           ]
         ],
         [
@@ -324,7 +347,8 @@
             13,
             14,
             30,
-            38
+            38,
+            42
           ]
         ],
         [
@@ -337,7 +361,10 @@
             19,
             20,
             21,
-            22
+            22,
+            39,
+            40,
+            41
           ]
         ],
         [
@@ -401,6 +428,16 @@
                 {
                   "key": {
                     "key": {
+                      "key": "1731655633193",
+                      "value": null
+                    },
+                    "value": null
+                  },
+                  "value": null
+                },
+                {
+                  "key": {
+                    "key": {
                       "key": "1731591145822",
                       "value": null
                     },
@@ -414,13 +451,6 @@
                   "keys": [
                     {
                       "key": "1731589663946",
-                      "value": null
-                    },
-                    {
-                      "key": {
-                        "key": "1731591189052",
-                        "value": null
-                      },
                       "value": null
                     }
                   ],
@@ -464,6 +494,10 @@
                         {
                           "key": "1731589787957",
                           "value": null
+                        },
+                        {
+                          "key": "1731678046386",
+                          "value": null
                         }
                       ],
                       "children": [
@@ -483,10 +517,74 @@
                             {
                               "key": "1731589787957",
                               "value": 5
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731678046386",
+                              "value": 41
                             },
+                            {
+                              "key": "1731681702721",
+                              "value": 42
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        }
+                      ],
+                      "isLeaf": false,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                },
+                {
+                  "keys": [
+                    {
+                      "key": {
+                        "key": "1731591189052",
+                        "value": null
+                      },
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731672211264",
+                          "value": null
+                        }
+                      ],
+                      "children": [
+                        {
+                          "keys": [
                             {
                               "key": "1731655633193",
                               "value": 38
+                            }
+                          ],
+                          "children": [],
+                          "isLeaf": true,
+                          "next": null
+                        },
+                        {
+                          "keys": [
+                            {
+                              "key": "1731672211264",
+                              "value": 39
+                            },
+                            {
+                              "key": "1731672224413",
+                              "value": 40
                             }
                           ],
                           "children": [],

@@ -24,9 +24,10 @@ const getBooksByGenre = async (req, res) => {
     try {
         const { genre } = req.params;
 
-        console.time('Database_Query');
+        const queryLabel = `FindBooksByGenre_${Date.now()}`;
+        console.time(queryLabel);
         const books = await localDb.findBooksByGenre(genre);
-        console.timeEnd('Database_Query');
+        console.timeEnd(queryLabel);
 
         console.timeEnd(timeLabel);
         res.json(books);

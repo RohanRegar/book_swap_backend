@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-15T07:27:13.200Z",
+  "timestamp": "2024-11-15T14:46:24.412Z",
   "indexes": {
     "simpleIndexes": {
       "email": [
@@ -92,6 +92,36 @@
           [
             14
           ]
+        ],
+        [
+          "testuser56@example.com",
+          [
+            15
+          ]
+        ],
+        [
+          "testuser09@example.com",
+          [
+            16
+          ]
+        ],
+        [
+          "testuser566@example.com",
+          [
+            17
+          ]
+        ],
+        [
+          "asd@example.com",
+          [
+            18
+          ]
+        ],
+        [
+          "newuser@example.com",
+          [
+            19
+          ]
         ]
       ]
     },
@@ -100,6 +130,16 @@
         "order": 3,
         "root": {
           "keys": [
+            {
+              "key": {
+                "key": {
+                  "key": "1731655230499",
+                  "value": null
+                },
+                "value": null
+              },
+              "value": null
+            },
             {
               "key": {
                 "key": "1731591104305",
@@ -117,7 +157,7 @@
                 },
                 {
                   "key": {
-                    "key": "1731655092766",
+                    "key": "1731674203505",
                     "value": null
                   },
                   "value": null
@@ -182,10 +222,97 @@
                         {
                           "key": "1731590143590",
                           "value": 5
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                },
+                {
+                  "keys": [
+                    {
+                      "key": "1731674260309",
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
+                        {
+                          "key": "1731674203505",
+                          "value": 17
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731674260309",
+                          "value": 18
                         },
+                        {
+                          "key": "1731677473510",
+                          "value": 19
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    }
+                  ],
+                  "isLeaf": false,
+                  "next": null
+                }
+              ],
+              "isLeaf": false,
+              "next": null
+            },
+            {
+              "keys": [
+                {
+                  "key": {
+                    "key": "1731655092766",
+                    "value": null
+                  },
+                  "value": null
+                }
+              ],
+              "children": [
+                {
+                  "keys": [
+                    {
+                      "key": "1731672378307",
+                      "value": null
+                    }
+                  ],
+                  "children": [
+                    {
+                      "keys": [
                         {
                           "key": "1731655230499",
                           "value": 14
+                        }
+                      ],
+                      "children": [],
+                      "isLeaf": true,
+                      "next": null
+                    },
+                    {
+                      "keys": [
+                        {
+                          "key": "1731672378307",
+                          "value": 15
+                        },
+                        {
+                          "key": "1731672488056",
+                          "value": 16
                         }
                       ],
                       "children": [],

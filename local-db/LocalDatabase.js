@@ -24,7 +24,24 @@ class LocalDatabase {
 
         this.initialized = false;
     }
+    async cleanupUserBookReferences() {
+        console.time('Cleanup User Books');
+        for (let user of this.users) {
+            if (user.books) {
+                // Filter out books that don't exist
+                const validBooks = user.books.filter(bookId =>
+                    this.bookIndexes.id.search(bookId).length > 0
+                );
 
+                if (validBooks.length !== user.books.length) {
+                    user.books = validBooks;
+                    console.log(`Cleaned up books for user ${user._id}`);
+                }
+            }
+        }
+        await FileUtils.writeJsonFile('users.json', this.users);
+        console.timeEnd('Cleanup User Books');
+    }
     async initialize() {
         if (this.initialized) return;
 
@@ -533,6 +550,48 @@ class LocalDatabase {
         });
 
         await this.saveIndexes();
+    }
+    async validateAndRebuildIndexes() {
+        console.time('Rebuild Indexes');
+        // Clear existing indexes
+        this.bookIndexes = {
+            id: new Index(),
+            title: new Index(),
+            genre: new Index(),
+            owner: new Index()
+        };
+
+        // Rebuild indexes
+        this.books.forEach((book, index) => {
+            if (book) {
+                this.bookIndexes.id.addToIndex(book._id, index);
+                this.bookIndexes.title.addToIndex(book.title.toLowerCase(), index);
+                this.bookIndexes.genre.addToIndex(book.genre.toLowerCase(), index);
+                this.bookIndexes.owner.addToIndex(book.owner, index);
+            }
+        });
+
+        // Save rebuilt indexes
+        await this.saveIndexes();
+        console.timeEnd('Rebuild Indexes');
+    }
+    async cleanupUserBookReferences() {
+        console.time('Cleanup User Books');
+        for (let user of this.users) {
+            if (user.books) {
+                // Filter out books that don't exist
+                const validBooks = user.books.filter(bookId =>
+                    this.bookIndexes.id.search(bookId).length > 0
+                );
+
+                if (validBooks.length !== user.books.length) {
+                    user.books = validBooks;
+                    console.log(`Cleaned up books for user ${user._id}`);
+                }
+            }
+        }
+        await FileUtils.writeJsonFile('users.json', this.users);
+        console.timeEnd('Cleanup User Books');
     }
 }
 

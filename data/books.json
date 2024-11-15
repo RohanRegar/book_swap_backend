@@ -505,5 +505,57 @@
     "isAvailable": true,
     "createdAt": "2024-11-15T07:27:13.193Z",
     "updatedAt": "2024-11-15T07:27:13.193Z"
+  },
+  {
+    "_id": "1731672211264",
+    "title": "The Man Who Mistook His Wife for a Hat",
+    "author": "Oliver Sacks",
+    "description": "The Man Who Mistook His Wife for a Hat and Other Clinical Tales is a 1985 non-fiction book by neurologist Oliver Sacks describing the case histories of some of his patients.",
+    "condition": "Good",
+    "genre": "Non-Fiction",
+    "image": "https://m.media-amazon.com/images/I/716rs9d+FPL._AC_UF1000,1000_QL80_.jpg",
+    "owner": "1731590143590",
+    "isAvailable": true,
+    "createdAt": "2024-11-15T12:03:31.264Z",
+    "updatedAt": "2024-11-15T12:03:31.264Z"
+  },
+  {
+    "_id": "1731672224413",
+    "title": "The Man Who Mistook His Wife for a Hat",
+    "author": "Oliver Sacks",
+    "description": "The Man Who Mistook His Wife for a Hat and Other Clinical Tales is a 1985 non-fiction book by neurologist Oliver Sacks describing the case histories of some of his patients.",
+    "condition": "Good",
+    "genre": "Non-Fiction",
+    "image": "https://m.media-amazon.com/images/I/716rs9d+FPL._AC_UF1000,1000_QL80_.jpg",
+    "owner": "1731590143590",
+    "isAvailable": true,
+    "createdAt": "2024-11-15T12:03:44.413Z",
+    "updatedAt": "2024-11-15T12:03:44.413Z"
+  },
+  {
+    "_id": "1731678046386",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "description": "The Alchemist is a novel by Brazilian author Paulo Coelho which was first published in 1988. Originally written in Portuguese, it became a widely translated international bestseller.",
+    "condition": "Good",
+    "genre": "Fiction",
+    "image": "https://m.media-amazon.com/images/I/61HAE8zahLL._AC_UF1000,1000_QL80_.jpg",
+    "owner": "1731590143590",
+    "isAvailable": true,
+    "createdAt": "2024-11-15T13:40:46.386Z",
+    "updatedAt": "2024-11-15T13:40:46.386Z"
+  },
+  {
+    "_id": "1731681702721",
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolein",
+    "description": "Prequel to lord of the rings.",
+    "condition": "Like New",
+    "genre": "Fiction",
+    "image": "https://rukminim2.flixcart.com/image/750/900/l2ghgnk0/book/r/3/w/the-hobbit-original-imagdsy4qspgcjgz.jpeg?q=20&crop=false",
+    "owner": "1731589888707",
+    "isAvailable": true,
+    "createdAt": "2024-11-15T14:41:42.721Z",
+    "updatedAt": "2024-11-15T14:41:42.721Z"
   }
 ]
