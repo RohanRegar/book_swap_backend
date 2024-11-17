@@ -153,7 +153,7 @@ class FileUtils {
 
         return {
             keys: node.keys,
-            children: node.children.map(child => this.serializeNode(child)),
+            children: node.children ? node.children.map(child => this.serializeNode(child)) : [],
             isLeaf: node.isLeaf,
             next: null // We don't serialize the next pointer as it's rebuilt during deserialization
         };
