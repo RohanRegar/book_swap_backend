@@ -3,6 +3,7 @@ const { getBooksByGenre } = require('./getBooksByGenreController');
 const { getUserBooks } = require('./getUserBooksController');
 const { searchBooksByTitle } = require('./searchBooksController');
 const { getBookById, getBookByTitle } = require('./getBookController');
+const { removeBook } = require('./removeBookController');
 
 module.exports = {
     addBook,
@@ -10,5 +11,6 @@ module.exports = {
     getUserBooks,
     searchBooksByTitle,
     getBookById,
-    getBookByTitle
+    getBookByTitle,
+    removeBook
 }; 

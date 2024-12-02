@@ -24,7 +24,7 @@ app.use(cors());
 // }));
 app.use(express.json());
 // Add after other middleware declarations
-app.use(timingMiddleware);
+// app.use(timingMiddleware);
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);

@@ -1,4 +1,4 @@
-const localDb = require('../../local-db/LocalDatabase');
+const Book = require('../../models/book');
 
 const getBookById = async (req, res) => {
     const timeLabel = `GetBookById_${Date.now()}`;
@@ -18,7 +18,7 @@ const getBookById = async (req, res) => {
         console.timeEnd('Validation');
 
         console.time('Database_Query');
-        const book = await localDb.findBookById(_id);
+        const book = await Book.findById(_id);
         console.timeEnd('Database_Query');
 
         if (!book) {
@@ -64,7 +64,7 @@ const getBookByTitle = async (req, res) => {
         console.timeEnd('Validation');
 
         console.time('Database_Query');
-        const books = await localDb.findBooksByTitle(title);
+        const books = await Book.find({ title: { $regex: title, $options: 'i' } });
         console.timeEnd('Database_Query');
 
         console.timeEnd(timeLabel);

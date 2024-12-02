@@ -7,7 +7,8 @@ const {
     getUserBooks,
     searchBooksByTitle,
     getBookById,
-    getBookByTitle
+    getBookByTitle,
+    removeBook
 } = require('../controllers/books');
 
 // Protected routes
@@ -16,6 +17,7 @@ router.get('/mybooks', protect, getUserBooks);
 router.get('/genre/:genre', getBooksByGenre);
 router.get('/user/:userId', protect, getUserBooks);
 router.get('/search', protect, searchBooksByTitle);
+router.delete('/remove/:bookId', protect, removeBook);
 
 // New routes - make sure these come after other routes with parameters
 router.get('/title/:title', getBookByTitle);

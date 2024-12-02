@@ -1,4 +1,4 @@
-const LocalDatabase = require('../../local-db/LocalDatabase');
+const User = require('../../models/user');
 
 const getPublicUserInfo = async (req, res) => {
     const timeLabel = `GetPublicUserInfo_${Date.now()}`;
@@ -18,7 +18,7 @@ const getPublicUserInfo = async (req, res) => {
         console.timeEnd('Validation');
 
         console.time('Database_Query');
-        const user = await LocalDatabase.findUserById(userId);
+        const user = await User.findById(userId);
         console.timeEnd('Database_Query');
 
         if (!user) {

@@ -1,4 +1,4 @@
-const localDb = require('../../local-db/LocalDatabase');
+const Book = require('../../models/book');
 
 const searchBooksByTitle = async (req, res) => {
     try {
@@ -11,7 +11,7 @@ const searchBooksByTitle = async (req, res) => {
             });
         }
 
-        const books = await localDb.findBooksByTitle(title);
+        const books = await Book.find({ title: { $regex: title, $options: 'i' } });
 
         res.status(200).json({
             success: true,
